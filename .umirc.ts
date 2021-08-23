@@ -8,7 +8,7 @@ export default defineConfig({
   mode: 'site',
   hash: true,
   // Because of using GitHub Pages
-  exportStatic: {},
+  // exportStatic: {},
   base: `/${repo}/`,
   publicPath: `/${repo}/`,
   resolve: {
