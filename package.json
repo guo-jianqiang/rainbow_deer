@@ -1,5 +1,11 @@
 {
   "name": "root",
+  "author": "guojianqiang",
+  "keywords": [
+    "react",
+    "component",
+    "UI"
+  ],
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -20,6 +26,11 @@
       "tslint --project ./tsconfig.json --fix",
       "git add"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guo-jianqiang/rainbow_deer",
+    "branch": "master"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
