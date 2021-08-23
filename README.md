@@ -6,4 +6,4 @@ React Components
 
 Currently supported components
 
-[Dialog](https://github.com/guo-jianqiang/rainbow_deer/blob/master/packages/dialog/README.md)
+[Dialog](https://guo-jianqiang.github.io/rainbow_deer/Components/dialog)
