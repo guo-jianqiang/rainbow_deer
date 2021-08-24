@@ -6,7 +6,7 @@ import { uglify } from "rollup-plugin-uglify"
 import pkg from './package.json'
 
 const postcssConfig = {
-    extract: true
+    // extract: true
 }
 
 const external = ['react', 'react-dom']
