@@ -1,11 +1,11 @@
 {
-  "name": "@rainbow_deer/dialog",
+  "name": "@rainbow_deer/button",
   "version": "0.1.1",
   "description": "React component.",
   "keywords": [
     "react",
     "component",
-    "dialog"
+    "button"
   ],
   "license": "MIT",
   "main": "lib/cjs/index.js",
@@ -17,6 +17,10 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "build": "rollup -c && tsc",
+    "test": "jest"
   },
   "author": "guojianqiang",
   "peerDependencies": {
@@ -35,8 +39,6 @@
     "rollup-plugin-postcss": "^4.0.1"
   },
   "dependencies": {
-    "@rainbow_deer/button": "^0.1.1",
-    "@rainbow_deer/icon": "^0.1.1",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
