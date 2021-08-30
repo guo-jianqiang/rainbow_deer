@@ -1,5 +1,14 @@
 {
   "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "*.md",
+        "**/test/**"
+      ],
+      "message": "chore(release): publish"
+    }
+  },
   "packages": [
     "packages/*"
   ],
