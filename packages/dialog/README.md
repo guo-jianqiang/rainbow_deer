@@ -1,4 +1,4 @@
-# Dialog
+# `Dialog`
 
 ## 安装
 

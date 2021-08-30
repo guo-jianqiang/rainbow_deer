@@ -25,3 +25,12 @@ export default () => {
   )
 }
 ```
+
+## props
+```ts
+export interface IconProps {
+  icon: string
+  className?: string
+  style?: React.CSSProperties
+}
+```
