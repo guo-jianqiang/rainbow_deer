@@ -8,6 +8,14 @@ group:
   path: /ReactComponent
 ---
 
+## install
+
+```shell script
+npm install rainbow_deer/button
+or
+yarn add rainbow_deer/button
+```
+
 ## 默认
 
 ```tsx

@@ -8,6 +8,13 @@ group:
   path: /ReactComponent
 ---
 
+## 安装
+
+```shell
+npm install @rainbow_deer/dialog
+yarn add @rainbow_deer/dialog
+```
+
 ## 默认
 
 ```tsx
