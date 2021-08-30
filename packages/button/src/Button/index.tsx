@@ -1,9 +1,9 @@
 /** @format */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
 import './style.less'
-import Loading from '../Spin'
+import Loading from './Spin'
 
 type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement>
 
@@ -11,7 +11,7 @@ type ButtonTypes = 'primary' | 'emphasize'
 
 type ButtonSizes = 'normal' | 'large' | 'small'
 
-const circleStyle: {[key: string]: React.CSSProperties} = {
+const circleStyle: { [key: string]: React.CSSProperties } = {
   emphasize: {
     stroke: '#fff',
   },
@@ -50,6 +50,18 @@ export interface ButtonProps extends Pick<ButtonType, Exclude<keyof ButtonType, 
    * 是否加载
    */
   loading?: boolean
+  /**
+   * 进度条
+   */
+  percent?: number
+  /**
+   * 进度文本
+   */
+  percentText?: string
+  /**
+   * 进度完成文本
+   */
+  fullPercentText?: string
   /**
    * 禁用
    */
@@ -91,8 +103,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean = true) {
   return child
 }
 
-const Button: React.FC<ButtonProps> = props => {
-
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     type = '',
     size = 'normal',
@@ -102,13 +113,35 @@ const Button: React.FC<ButtonProps> = props => {
     block = false,
     autoInsertSpaceInButton = true,
     loading,
+    percent = 0,
+    percentText = '下载中',
+    fullPercentText = '已下载',
     children,
     ...rest
   } = props
 
+  const [process, setProcess] = useState(percent)
+
   const classNames = cn(`${prefixCls}-button`, size, type, className, {
-    loading,
+    loading: loading || process !== 0,
   })
+
+  useEffect(() => {
+    if (process === 100) {
+      setTimeout(() => {
+        setProcess(0)
+      }, 1000)
+    }
+  }, [process])
+
+  useEffect(() => {
+    setProcess(percent > 100 ? 100 : percent)
+  }, [percent])
+
+  const processStyle: React.CSSProperties & { [key: string]: any } = {
+    '--process-percent': process + '%',
+  }
+
   return (
     <button
       className={classNames}
@@ -117,7 +150,18 @@ const Button: React.FC<ButtonProps> = props => {
         width: block ? '100%' : 'auto',
         ...style,
       }}
-      {...rest}>
+      {...rest}
+    >
+      {process ? (
+        <div
+          className={cn(`${prefixCls}-button-processWrap`, {
+            // [`${prefixCls}-button-process-end`]: isEnd,
+          })}
+        >
+          <span>{process < 100 ? percentText : fullPercentText}</span>
+          <div style={processStyle} className={`${prefixCls}-button-processWrap-process`} />
+        </div>
+      ) : null}
       {loading && (
         <span className={`${prefixCls}-button-loading`}>
           <Loading size={size} circleStyle={circleStyle[type]} />

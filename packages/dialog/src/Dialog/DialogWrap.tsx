@@ -1,6 +1,6 @@
 /** @format */
 
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReactDom from 'react-dom'
 import Dialog from './Dialog'
 import DialogDrag from './DialogDrag'
@@ -137,7 +137,7 @@ export interface DialogWrapProps {
 const DialogWrap: React.FC<DialogWrapProps> & {
   confirm: typeof DialogConfirm
   DialogDrag: typeof DialogDrag
-} = props => {
+} = (props) => {
   const {
     visible,
     forceRender = false,
@@ -196,7 +196,10 @@ const DialogWrap: React.FC<DialogWrapProps> & {
     return <Dialog {...dialogProps}>{children}</Dialog>
   }
 
-  return ReactDom.createPortal(<Dialog {...dialogProps}>{children}</Dialog>, getContainer() as HTMLLIElement)
+  return ReactDom.createPortal(
+    <Dialog {...dialogProps}>{children}</Dialog>,
+    getContainer() as HTMLLIElement
+  )
 }
 
 DialogWrap.confirm = DialogConfirm

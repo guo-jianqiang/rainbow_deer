@@ -1,6 +1,6 @@
 /** @format */
 
-import React, {useEffect, useImperativeHandle, useRef, useState} from 'react'
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 interface DragWrapperProps {
   disabled: boolean
@@ -13,8 +13,8 @@ type TPos = {
 }
 
 type TBoundaryRef = {
-  min: {x: number; y: number}
-  max: {x: number; y: number}
+  min: { x: number; y: number }
+  max: { x: number; y: number }
 }
 
 export type DragWrapperRef = {
@@ -26,11 +26,11 @@ type TChildrenProps = {
 }
 
 const DragWrapper = React.forwardRef<DragWrapperRef, DragWrapperProps>((props, ref) => {
-  const {children, disabled} = props
+  const { children, disabled } = props
   const dragRef = useRef<HTMLElement>(null)
   const boundaryRef = useRef<TBoundaryRef>({
-    max: {x: 0, y: 0},
-    min: {x: 0, y: 0},
+    max: { x: 0, y: 0 },
+    min: { x: 0, y: 0 },
   })
 
   const [pos, setPos] = useState<TPos>({
@@ -41,7 +41,7 @@ const DragWrapper = React.forwardRef<DragWrapperRef, DragWrapperProps>((props, r
   useEffect(() => {
     const setBoundary = () => {
       if (boundaryRef.current && dragRef.current) {
-        const {offsetWidth, offsetHeight} = dragRef.current
+        const { offsetWidth, offsetHeight } = dragRef.current
         boundaryRef.current.max.x = (window.innerWidth - offsetWidth) / 2
         boundaryRef.current.min.x = (offsetWidth - window.innerWidth) / 2
         boundaryRef.current.max.y = (window.innerHeight - offsetHeight) / 2
@@ -55,7 +55,7 @@ const DragWrapper = React.forwardRef<DragWrapperRef, DragWrapperProps>((props, r
     }
   }, [])
 
-  const restore = () => setPos({x: 0, y: 0})
+  const restore = () => setPos({ x: 0, y: 0 })
 
   useImperativeHandle(ref, () => {
     return {
@@ -64,13 +64,13 @@ const DragWrapper = React.forwardRef<DragWrapperRef, DragWrapperProps>((props, r
   })
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-    const {clientX, clientY} = event
+    const { clientX, clientY } = event
     const startX = clientX
     const startY = clientY
     const move = (event: MouseEvent) => {
       if (!boundaryRef.current) return
-      const {max, min} = boundaryRef.current
-      const {clientX, clientY} = event
+      const { max, min } = boundaryRef.current
+      const { clientX, clientY } = event
       let nextX = clientX - startX + pos.x
       let nextY = clientY - startY + pos.y
       if (nextX > max.x) {

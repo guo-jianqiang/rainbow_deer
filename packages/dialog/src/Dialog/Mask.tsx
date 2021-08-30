@@ -12,7 +12,7 @@ interface MaskProps {
 }
 
 const Mask = (props: MaskProps) => {
-  const {visible, maskStyle, zIndex, prefixCls, animationName} = props
+  const { visible, maskStyle, zIndex, prefixCls, animationName } = props
 
   return (
     <div

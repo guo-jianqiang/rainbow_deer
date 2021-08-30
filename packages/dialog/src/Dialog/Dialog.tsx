@@ -1,13 +1,13 @@
 /** @format */
 
-import React, { useEffect, useMemo, useRef} from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import cn from 'classnames'
 import './style.less'
 import MemoChildren from './MemoChildren'
 import Mask from './Mask'
-import Button from './Button'
-import Icon from './Icon'
-import {DialogWrapProps} from './DialogWrap'
+import Button from '@rainbow_deer/button'
+import Icon from '@rainbow_deer/icon'
+import { DialogWrapProps } from './DialogWrap'
 
 export const defaultAnimationName = 'zDialogFade'
 
@@ -17,8 +17,7 @@ export interface DialogProps extends DialogWrapProps {
   onDialogAnimationEnd?: () => void
 }
 
-const Dialog: React.FC<DialogProps> = props => {
-
+const Dialog: React.FC<DialogProps> = (props) => {
   const {
     // 样式
     width = 400,
@@ -86,10 +85,10 @@ const Dialog: React.FC<DialogProps> = props => {
 
   const buttons = (
     <React.Fragment>
-      <Button style={{marginRight: 8}} onClick={handleClickCloseDialog}>
+      <Button style={{ marginRight: 8 }} onClick={handleClickCloseDialog}>
         {closeText}
       </Button>
-      <Button loading={confirmLoading} type="emphasize" onClick={handleClickOk}>
+      <Button loading={confirmLoading} type='emphasize' onClick={handleClickOk}>
         {okText}
       </Button>
     </React.Fragment>
@@ -100,7 +99,7 @@ const Dialog: React.FC<DialogProps> = props => {
     footerNode = (
       <div className={cn(`${prefixCls}-footer`, footerClassName)} style={footerStyle}>
         {footer && footer.length
-          ? footer.map(btn => {
+          ? footer.map((btn) => {
               if (React.isValidElement(btn)) return btn
               return null
             })
@@ -121,8 +120,15 @@ const Dialog: React.FC<DialogProps> = props => {
   let closer: React.ReactNode
   if (closable) {
     closer = (
-      <button type="button" onClick={handleClickCloseDialog} aria-label="Close" className={`${prefixCls}-close`}>
-        {(React.isValidElement(closeIcon) && closeIcon) || <Icon icon="close" className={`${prefixCls}-close-x`} />}
+      <button
+        type='button'
+        onClick={handleClickCloseDialog}
+        aria-label='Close'
+        className={`${prefixCls}-close`}
+      >
+        {(React.isValidElement(closeIcon) && closeIcon) || (
+          <Icon icon='close' className={`${prefixCls}-close-x`} />
+        )}
       </button>
     )
   }
@@ -131,32 +137,36 @@ const Dialog: React.FC<DialogProps> = props => {
     <div className={cn(`${prefixCls}-content`, className)} style={style}>
       {closer}
       {headerNode}
-      <div className={`${prefixCls}-body`} style={{...bodyStyle, height}}>
+      <div className={`${prefixCls}-body`} style={{ ...bodyStyle, height }}>
         {children}
       </div>
       {footerNode}
     </div>
   )
 
-  const varStyle = useMemo(() => ({'--z-dialog-duration': animationDuration + 'ms'}), [animationDuration])
+  const varStyle = useMemo(
+    () => ({ '--z-dialog-duration': animationDuration + 'ms' }),
+    [animationDuration]
+  )
 
   const dialogStyle: React.CSSProperties = useMemo(
     () => ({
       width,
       animationName: openAnimation ? (visible ? `${animationName}In` : `${animationName}Out`) : '',
     }),
-    [openAnimation, width, animationName, visible],
+    [openAnimation, width, animationName, visible]
   )
 
   return (
     <div
       ref={rootRef}
-      className="z-dialog-root"
+      className='z-dialog-root'
       style={{
         transition: openAnimation ? 'visibility var(--z-dialog-duration) linear' : '',
         visibility: visible ? 'visible' : 'hidden',
         ...varStyle,
-      }}>
+      }}
+    >
       {mask && (
         <Mask
           animationName={openAnimation ? maskAnimationName : ''}
@@ -166,7 +176,7 @@ const Dialog: React.FC<DialogProps> = props => {
           zIndex={zIndex}
         />
       )}
-      <div className="z-dialog-wrap" style={{zIndex}}>
+      <div className='z-dialog-wrap' style={{ zIndex }}>
         <div ref={ref} className={'z-dialog'} style={dialogStyle} onAnimationEnd={onAnimationEnd}>
           <MemoChildren shouldUpdate={visible || !!forceRender}>
             {dialogRender ? dialogRender(content) : content}

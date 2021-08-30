@@ -3,16 +3,17 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import cn from 'classnames'
-import DialogWrap, {DialogWrapProps} from './DialogWrap'
-import Button from './Button'
-import Icon from './Icon'
-import {getUUId} from './helper'
-import {defaultAnimationName} from './Dialog'
+import DialogWrap, { DialogWrapProps } from './DialogWrap'
+import Button from '@rainbow_deer/button'
+import Icon from '@rainbow_deer/icon'
+import { getUUId } from './helper'
+import { defaultAnimationName } from './Dialog'
 import DialogDrag from './DialogDrag'
 
 type TConfirmType = 'warning' | 'info' | 'error' | 'success'
 
-export interface ConfirmProps extends Pick<DialogWrapProps, Exclude<keyof DialogWrapProps, 'visible' | 'children'>> {
+export interface ConfirmProps
+  extends Pick<DialogWrapProps, Exclude<keyof DialogWrapProps, 'visible' | 'children'>> {
   content: React.ReactNode
   icon?: React.ReactElement
   type?: TConfirmType
@@ -30,7 +31,7 @@ export type TDialogConfirm = {
   destroyAll: () => void
 }
 
-const DialogConfirm: TDialogConfirm = props => {
+const DialogConfirm: TDialogConfirm = (props) => {
   const {
     type,
     openAnimation = true,
@@ -44,7 +45,7 @@ const DialogConfirm: TDialogConfirm = props => {
     ...rest
   } = props
 
-  const indexRef = {index: 0}
+  const indexRef = { index: 0 }
 
   const handleClickOk = () => {
     if (typeof onOk === 'function') {
@@ -72,13 +73,19 @@ const DialogConfirm: TDialogConfirm = props => {
   const DialogComp = draggable ? DialogDrag : DialogWrap
 
   ReactDom.render(
-    <DialogComp {...rest} visible onOk={handleClickOk} onClose={handleClickClose} getContainer={() => div}>
+    <DialogComp
+      {...rest}
+      visible
+      onOk={handleClickOk}
+      onClose={handleClickClose}
+      getContainer={() => div}
+    >
       {type || icon ? (
         <div className={'z-confirm-status-body'}>
           {React.isValidElement(icon)
             ? icon
             : type && <Icon icon={type} className={cn('z-confirm-status-body-icon', type)} />}
-          <div className="z-confirm-status-body-msg">{content}</div>
+          <div className='z-confirm-status-body-msg'>{content}</div>
         </div>
       ) : (
         content
@@ -94,7 +101,7 @@ const DialogConfirm: TDialogConfirm = props => {
       }
 
       document.body.appendChild(div)
-    },
+    }
   )
 
   const destroy = () => {
@@ -120,7 +127,7 @@ const DialogConfirm: TDialogConfirm = props => {
 
 const showConfirmType = (props: ConfirmProps) => {
   let destroy = () => {}
-  const {type, footer, ...rest} = props
+  const { type, footer, ...rest } = props
   const handleClose = () => {
     destroy()
   }
@@ -128,30 +135,30 @@ const showConfirmType = (props: ConfirmProps) => {
     ...rest,
     type,
     footer: footer || [
-      <Button type="emphasize" onClick={handleClose} key={'I know'}>
+      <Button type='emphasize' onClick={handleClose} key={'I know'}>
         知道了
       </Button>,
     ],
-    footerStyle: {border: 'none', padding: '10px 40px 30px'},
+    footerStyle: { border: 'none', padding: '10px 40px 30px' },
     onClose: () => destroy(),
   })
   return destroy
 }
 
 export function info(props: ConfirmProps) {
-  return showConfirmType({...props, type: 'info'})
+  return showConfirmType({ ...props, type: 'info' })
 }
 
 export const error = (props: ConfirmProps) => {
-  return showConfirmType({...props, type: 'error'})
+  return showConfirmType({ ...props, type: 'error' })
 }
 
 export const warning = (props: ConfirmProps) => {
-  return showConfirmType({...props, type: 'warning'})
+  return showConfirmType({ ...props, type: 'warning' })
 }
 
 export const success = (props: ConfirmProps) => {
-  return showConfirmType({...props, type: 'success'})
+  return showConfirmType({ ...props, type: 'success' })
 }
 
 export const destroyAll = () => {

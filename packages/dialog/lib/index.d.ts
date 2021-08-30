@@ -1,3 +1,3 @@
 /** @format */
-import Dialog from "./Dialog/DialogWrap";
-export default Dialog;
+import Dialog from './Dialog/DialogWrap'
+export default Dialog

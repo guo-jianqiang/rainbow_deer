@@ -12,7 +12,11 @@ export default defineConfig({
   base: `/${repo}/`,
   publicPath: `/${repo}/`,
   resolve: {
-    includes: ['packages/dialog/src']
+    includes: [
+      'packages/dialog/src',
+      'packages/button/src',
+      'packages/icon/src',
+    ]
   },
   navs: [
     null,
