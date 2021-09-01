@@ -3,9 +3,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 
-const postcssConfig = {
-  // extract: true
-}
+const postcssConfig = {}
 
 const external = ['react', 'react-dom']
 
