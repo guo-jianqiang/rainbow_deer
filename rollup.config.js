@@ -5,7 +5,13 @@ import resolve from 'rollup-plugin-node-resolve'
 
 const postcssConfig = {}
 
-const external = ['react', 'react-dom']
+const external = ['react', 'react-dom', 'prop-types']
+
+const globals = {
+    'react': 'React',
+    'react-dom': 'ReactDom',
+    'prop-types': 'PropTypes'
+}
 
 const input = 'src/index.ts'
 
@@ -14,6 +20,7 @@ const getConfig = function (pkg) {
     {
       input,
       output: {
+        globals,
         file: pkg.module,
         format: 'esm',
         // sourcemap: true
@@ -29,6 +36,7 @@ const getConfig = function (pkg) {
     {
       input,
       output: {
+        globals,
         file: pkg.main,
         format: 'cjs',
         // sourcemap: true
@@ -48,9 +56,7 @@ const getConfig = function (pkg) {
         format: 'umd',
         name: 'ReactHeroModal',
         // sourcemap: true,
-        globals: {
-          react: 'React',
-        },
+        globals
       },
       external,
       plugins: [
