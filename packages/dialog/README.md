@@ -1,19 +1,20 @@
 # `Dialog`
 
-## 安装
+## install
 
 ```shell
 npm install @rainbow_deer/dialog
 yarn add @rainbow_deer/dialog
 ```
 
-## 使用
+## usage
 
-### 默认
+### basic
 
 ```tsx
 import React, { useState } from 'react'
 import Dialog from '@rainbow_deer/dialog'
+import Button from '@rainbow_deer/button'
 
 export default () => {
   const [visible, setVisible] = useState(false)
@@ -22,7 +23,7 @@ export default () => {
   }
   return (
     <>
-      <button onClick={handleClick}>打开</button>
+      <Button onClick={handleClick}>打开</Button>
       <Dialog onClose={() => setVisible(false)} visible={visible} title='标题'>
         body
       </Dialog>
@@ -31,11 +32,12 @@ export default () => {
 }
 ```
 
-### 可拖拽
+### drag
 
 ```tsx
 import React, { useState } from 'react'
 import Dialog from '@rainbow_deer/dialog'
+import Button from '@rainbow_deer/button'
 
 export default () => {
   const [visible, setVisible] = useState(false)
@@ -44,7 +46,7 @@ export default () => {
   }
   return (
     <>
-      <button onClick={handleClick}>打开</button>
+      <Button onClick={handleClick}>打开</Button>
       <Dialog.DialogDrag onClose={() => setVisible(false)} visible={visible} title='标题'>
         body
       </Dialog.DialogDrag>
@@ -53,17 +55,18 @@ export default () => {
 }
 ```
 
-### 自定义 dialog 样式
+### custom dialog
 
 ```tsx
 import React, { useState } from 'react'
 import Dialog from '@rainbow_deer/dialog'
+import Button from '@rainbow_deer/button'
 
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
     <>
-      <button onClick={() => setVisible(true)}>打开</button>
+      <Button onClick={() => setVisible(true)}>打开</Button>
       <Dialog
         title={'标题'}
         visible={visible}
@@ -88,19 +91,20 @@ export default () => {
 }
 ```
 
-### 自定义 footer
+### custom footer
 
 ```tsx
 import React, { useState } from 'react'
 import Dialog from '@rainbow_deer/dialog'
+import Button from '@rainbow_deer/button'
 
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
     <>
-      <button type='emphasize' onClick={() => setVisible(true)}>
+      <Button type='emphasize' onClick={() => setVisible(true)}>
         打开
-      </button>
+      </Button>
       <Dialog
         title='标题'
         visible={visible}
@@ -119,6 +123,7 @@ export default () => {
 ```tsx
 import React, { useState } from 'react'
 import Dialog from '@rainbow_deer/dialog'
+import Button from '@rainbow_deer/button'
 export default () => {
   const handleClick = () => {
     const destroy = Dialog.confirm({
@@ -131,7 +136,7 @@ export default () => {
       },
     })
   }
-  return <button onClick={handleClick}>打开</button>
+  return <Button onClick={handleClick}>打开</Button>
 }
 ```
 

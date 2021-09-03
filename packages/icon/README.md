@@ -1,4 +1,4 @@
-# `icon`
+# `Icon`
 
 ## install
 
@@ -27,6 +27,7 @@ export default () => {
 ```
 
 ## props
+
 ```ts
 export interface IconProps {
   icon: string

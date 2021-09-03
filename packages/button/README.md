@@ -1,4 +1,4 @@
-# `button`
+# `Button`
 
 ## install
 
@@ -8,9 +8,9 @@ or
 yarn add rainbow_deer/button
 ```
 
-## Usage
+## usage
 
-### 默认
+### basic
 
 ```tsx
 import React, { useState } from 'react'
@@ -25,7 +25,7 @@ export default () => {
 }
 ```
 
-### primary
+## primary
 
 ```tsx
 import React, { useState } from 'react'
@@ -81,6 +81,7 @@ export default () => {
 ```
 
 ### disabled
+
 ```tsx
 import React, { useState } from 'react'
 import Button from '@rainbow_deer/button'
@@ -129,7 +130,9 @@ export default () => {
   )
 }
 ```
-## props
+
+### props
+
 ```ts
 export interface ButtonProps extends Pick<ButtonType, Exclude<keyof ButtonType, 'type'>> {
   /**
@@ -182,4 +185,3 @@ export interface ButtonProps extends Pick<ButtonType, Exclude<keyof ButtonType, 
   disabled?: boolean
 }
 ```
-

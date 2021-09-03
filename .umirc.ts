@@ -16,6 +16,7 @@ export default defineConfig({
       'packages/dialog/src',
       'packages/button/src',
       'packages/icon/src',
+      'packages/layout/src',
     ]
   },
   navs: [
@@ -25,5 +26,8 @@ export default defineConfig({
       path: 'https://github.com/guo-jianqiang/rainbow_deer',
     },
   ],
+  extraBabelPlugins: [
+    ["import", { "libraryName": "antd", "style": true }]
+  ]
   // more config: https://d.umijs.org/config
 })

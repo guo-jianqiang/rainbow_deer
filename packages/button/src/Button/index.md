@@ -16,7 +16,9 @@ or
 yarn add rainbow_deer/button
 ```
 
-## 默认
+## usage
+
+### basic
 
 ```tsx
 import React, { useState } from 'react'
@@ -46,7 +48,7 @@ export default () => {
 }
 ```
 
-## emphasize
+### emphasize
 
 ```tsx
 import React, { useState } from 'react'
@@ -61,7 +63,7 @@ export default () => {
 }
 ```
 
-## size
+### size
 
 ```tsx
 import React, { useState } from 'react'
@@ -86,7 +88,8 @@ export default () => {
 }
 ```
 
-## disabled
+### disabled
+
 ```tsx
 import React, { useState } from 'react'
 import Button from '@rainbow_deer/button'
@@ -102,7 +105,7 @@ export default () => {
 }
 ```
 
-## percent
+### percent
 
 ```tsx
 import React, { useState } from 'react'
@@ -119,7 +122,7 @@ export default () => {
 }
 ```
 
-## loading
+### loading
 
 ```tsx
 import React, { useState } from 'react'
@@ -135,6 +138,8 @@ export default () => {
   )
 }
 ```
+
+### props
 
 ```ts
 export interface ButtonProps extends Pick<ButtonType, Exclude<keyof ButtonType, 'type'>> {

@@ -1,14 +1,12 @@
 /** @format */
 
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import IconLib from './IconLib'
 import cn from 'classnames'
 import './style.less'
 
-export interface IconProps {
+export interface IconProps extends HTMLAttributes<HTMLElement> {
   icon: string
-  className?: string
-  style?: React.CSSProperties
 }
 
 const Icon = (props: IconProps) => {

@@ -16,7 +16,7 @@ or
 yarn add rainbow_deer/icon
 ```
 
-## 默认
+## usage
 
 ```tsx
 import React, { useState } from 'react'
@@ -29,12 +29,14 @@ export default () => {
       <Icon icon='success' style={{ color: 'red' }} />
       <Icon icon='error' />
       <Icon icon='warning' />
+      <Icon icon='home' />
     </>
   )
 }
 ```
 
 ## props
+
 ```ts
 export interface IconProps {
   icon: string

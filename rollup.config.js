@@ -5,7 +5,7 @@ import resolve from 'rollup-plugin-node-resolve'
 
 const postcssConfig = {}
 
-const external = ['react', 'react-dom', 'prop-types']
+export const external = ['react', 'react-dom', 'prop-types', 'antd']
 
 const globals = {
     'react': 'React',

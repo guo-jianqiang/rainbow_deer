@@ -8,14 +8,16 @@ group:
   path: /ReactComponent
 ---
 
-## 安装
+## install
 
 ```shell
 npm install @rainbow_deer/dialog
 yarn add @rainbow_deer/dialog
 ```
 
-## 默认
+## usage
+
+### basic
 
 ```tsx
 import React, { useState } from 'react'
@@ -38,7 +40,7 @@ export default () => {
 }
 ```
 
-## 可拖拽
+### drag
 
 ```tsx
 import React, { useState } from 'react'
@@ -61,7 +63,7 @@ export default () => {
 }
 ```
 
-## 自定义 dialog 样式
+### custom dialog
 
 ```tsx
 import React, { useState } from 'react'
@@ -97,7 +99,7 @@ export default () => {
 }
 ```
 
-## 自定义 footer
+### custom footer
 
 ```tsx
 import React, { useState } from 'react'
@@ -124,7 +126,7 @@ export default () => {
 }
 ```
 
-## dialog confirm
+### dialog confirm
 
 ```tsx
 import React, { useState } from 'react'
