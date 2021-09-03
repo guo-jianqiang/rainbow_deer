@@ -1,6 +1,6 @@
 {
   "name": "@rainbow_deer/layout",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "React component.",
   "keywords": [
     "react",
@@ -23,15 +23,15 @@
   },
   "author": "guojianqiang",
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "antd": ">=4.16.0"
+    "antd": ">=4.16.0",
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.18",
     "@types/react-dom": "^17.0.9"
   },
   "dependencies": {
-    "@rainbow_deer/icon": "^0.1.5",
+    "@rainbow_deer/icon": "^0.1.6",
     "antd": "^4.16.13",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
