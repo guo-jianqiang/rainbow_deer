@@ -11,9 +11,9 @@ group:
 ## install
 
 ```shell script
-npm install rainbow_deer/button
+npm install @rainbow_deer/button
 or
-yarn add rainbow_deer/button
+yarn add @rainbow_deer/button
 ```
 
 ## usage

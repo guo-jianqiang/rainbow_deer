@@ -3,9 +3,9 @@
 ## install
 
 ```shell script
-npm install rainbow_deer/layout
+npm install @rainbow_deer/layout
 or
-yarn add rainbow_deer/layout
+yarn add @rainbow_deer/layout
 ```
 
 ## usage
