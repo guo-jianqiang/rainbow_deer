@@ -65,7 +65,9 @@ const DialogConfirm: TDialogConfirm = (props) => {
 
   const div = document.createElement('div')
 
-  div.id = 'z-confirm-' + getUUId()
+  const uuid = getUUId()
+
+  div.id = 'z-confirm-' + uuid
 
   let zDialog: HTMLElement
   let zDialogMask: HTMLElement

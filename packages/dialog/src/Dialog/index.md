@@ -148,6 +148,97 @@ export default () => {
 }
 ```
 
+### confirm status
+
+```tsx
+import React, { useState } from 'react'
+import Dialog from '@rainbow_deer/dialog'
+import Button from '@rainbow_deer/button'
+
+export default () => {
+  const args = {
+    title: '标题',
+    content: 'content',
+  }
+  const handleClickSuccess = () => {
+    Dialog.confirm.success({
+      ...args,
+    })
+  }
+  const handleClickInfo = () => {
+    Dialog.confirm.info({
+      ...args,
+    })
+  }
+  const handleClickWarning = () => {
+    Dialog.confirm.warning({
+      ...args,
+    })
+  }
+  const handleClickError = () => {
+    Dialog.confirm.error({
+      ...args,
+    })
+  }
+  const btnStyle = { marginRight: 4 }
+  return (
+    <>
+      <Button style={btnStyle} type='emphasize' onClick={handleClickInfo}>
+        info
+      </Button>
+      <Button style={btnStyle} type='emphasize' onClick={handleClickSuccess}>
+        success
+      </Button>
+      <Button style={btnStyle} type='emphasize' onClick={handleClickWarning}>
+        warning
+      </Button>
+      <Button type='emphasize' onClick={handleClickError}>
+        error
+      </Button>
+    </>
+  )
+}
+```
+
+### close confirm all
+
+```tsx
+import React, { useState } from 'react'
+import Dialog from '@rainbow_deer/dialog'
+import Button from '@rainbow_deer/button'
+
+export default () => {
+  const handleClickOpenInnerDialog = () => {
+    Dialog.confirm({
+      title: '标题',
+      width: 300,
+      content: <Button onClick={() => Dialog.confirm.destroyAll()}>关闭全部</Button>,
+    })
+  }
+  const handleClick = () => {
+    const destroy = Dialog.confirm({
+      title: '标题',
+      content: (
+        <Button type='emphasize' onClick={handleClickOpenInnerDialog}>
+          打开
+        </Button>
+      ),
+      onOk: () => {
+        destroy()
+      },
+      onClose: () => {
+        destroy()
+      },
+    })
+  }
+  return (
+    <Button type='emphasize' onClick={handleClick}>
+      打开
+    </Button>
+  )
+}
+```
+
 ## props
 
 ```ts

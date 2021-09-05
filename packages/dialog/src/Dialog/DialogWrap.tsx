@@ -134,8 +134,12 @@ export interface DialogWrapProps {
   children: React.ReactNode
 }
 
+// ===================== dialog 打开队列  ===================
+const dialogOpenQueue: number[] = []
+
 const DialogWrap: React.FC<DialogWrapProps> & {
   confirm: typeof DialogConfirm
+  dialogOpenQueue: typeof dialogOpenQueue
   DialogDrag: typeof DialogDrag
 } = (props) => {
   const {
@@ -203,6 +207,8 @@ const DialogWrap: React.FC<DialogWrapProps> & {
 }
 
 DialogWrap.confirm = DialogConfirm
+
+DialogWrap.dialogOpenQueue = dialogOpenQueue
 
 DialogWrap.DialogDrag = DialogDrag
 
