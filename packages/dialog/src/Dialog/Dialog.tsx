@@ -87,10 +87,6 @@ const Dialog: React.FC<DialogProps> = (props) => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.keyCode === 27) {
         handleClickCloseDialog()
-        console.log(DialogWrap.dialogOpenQueue, dialogId.current)
-        // if (DialogWrap.dialogOpenQueue.pop() === dialogId.current) {
-        //   handleClickCloseDialog()
-        // }
       } else if (event.keyCode === 13) {
         handleClickOk()
       }
