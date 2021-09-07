@@ -7,8 +7,7 @@ import MemoChildren from './MemoChildren'
 import Mask from './Mask'
 import Button from '@rainbow_deer/button'
 import Icon from '@rainbow_deer/icon'
-import DialogWrap, { DialogWrapProps } from './DialogWrap'
-import { getUUId } from './helper'
+import { DialogWrapProps } from './DialogWrap'
 
 export const defaultAnimationName = 'zDialogFade'
 
@@ -58,15 +57,8 @@ const Dialog: React.FC<DialogProps> = (props) => {
 
   const rootRef = useRef<HTMLDivElement>(null)
 
-  const dialogId = useRef<number>(-1)
-
   const handleClickCloseDialog = () => {
-    const topDialogId = DialogWrap.dialogOpenQueue[DialogWrap.dialogOpenQueue.length - 1]
-    if (topDialogId === dialogId.current) {
-      const index = DialogWrap.dialogOpenQueue.findIndex((i) => i === dialogId.current)
-      DialogWrap.dialogOpenQueue.splice(index, 1)
-      onCloseDialog()
-    }
+    onCloseDialog()
   }
 
   const onAnimationEnd = () => {
@@ -78,12 +70,6 @@ const Dialog: React.FC<DialogProps> = (props) => {
   }
 
   useEffect(() => {
-    // ===================== esc 每次只关闭置顶dialog ===================
-    if (visible) {
-      dialogId.current = getUUId()
-      DialogWrap.dialogOpenQueue.push(dialogId.current)
-      console.log(DialogWrap.dialogOpenQueue)
-    }
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.keyCode === 27) {
         handleClickCloseDialog()
@@ -195,7 +181,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
       <div className='z-dialog-wrap' style={{ zIndex }}>
         <div ref={ref} className={'z-dialog'} style={dialogStyle} onAnimationEnd={onAnimationEnd}>
           <MemoChildren shouldUpdate={visible || !!forceRender}>
-            {dialogRender ? dialogRender(content) : content}
+            {dialogRender ? dialogRender(content, handleClickCloseDialog) : content}
           </MemoChildren>
         </div>
       </div>

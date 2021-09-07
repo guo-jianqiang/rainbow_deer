@@ -32,7 +32,7 @@ export default () => {
   return (
     <>
       <Button onClick={handleClick}>打开</Button>
-      <Dialog onClose={() => setVisible(false)} visible={visible} title='标题'>
+      <Dialog destroyOnClose onClose={() => setVisible(false)} visible={visible} title='标题'>
         body
       </Dialog>
     </>
@@ -79,14 +79,14 @@ export default () => {
         title={'标题'}
         visible={visible}
         onClose={() => setVisible(false)}
-        dialogRender={() => (
+        dialogRender={(_, closeDialog) => (
           <div
             style={{ border: '1px solid #ccc', padding: 20, borderRadius: 4, background: '#fff' }}
           >
             <h3>标题</h3>
             <div>body</div>
             <div style={{ textAlign: 'right' }}>
-              <button style={{ marginRight: 8 }} onClick={() => setVisible(false)}>
+              <button style={{ marginRight: 8 }} onClick={() => closeDialog()}>
                 取消
               </button>
               <button>确定</button>
@@ -208,11 +208,18 @@ import Dialog from '@rainbow_deer/dialog'
 import Button from '@rainbow_deer/button'
 
 export default () => {
+  const handleClickOpenThirdDialog = () => {
+    Dialog.confirm({
+      title: '标题',
+      width: 250,
+      content: <Button onClick={() => Dialog.confirm.destroyAll()}>关闭所有</Button>,
+    })
+  }
   const handleClickOpenInnerDialog = () => {
     Dialog.confirm({
       title: '标题',
       width: 300,
-      content: <Button onClick={() => Dialog.confirm.destroyAll()}>关闭全部</Button>,
+      content: <Button onClick={handleClickOpenThirdDialog}>打开</Button>,
     })
   }
   const handleClick = () => {

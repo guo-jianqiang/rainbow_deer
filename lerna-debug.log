@@ -1,13 +1,10 @@
-0 silly argv {
-0 silly argv   _: [ 'add' ],
-0 silly argv   scope: '@rainbow_deer/{icon,dialog}',
-0 silly argv   globs: [],
-0 silly argv   lernaVersion: '4.0.0',
-0 silly argv   '$0': '/Users/guojianqiang/Documents/my-project/rainbow_deer/node_modules/.bin/lerna',
-0 silly argv   pkg: 'andt'
-0 silly argv }
-1 notice cli v4.0.0
-2 verbose rootPath /Users/guojianqiang/Documents/my-project/rainbow_deer
-3 info versioning independent
-4 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/andt - Not found
-4 error     at /Users/guojianqiang/Documents/my-project/rainbow_deer/node_modules/npm-registry-fetch/check-response.js:95:15
+41 error Error: Command failed with exit code 1: git commit -F /private/var/folders/_1/bth_ls196xsbrmd7zm2wzky40000gn/T/cf43f964-8fb9-4669-a97e-92ead5129733/lerna-commit.txt
+41 error ℹ No staged files found.
+41 error On branch master
+41 error Your branch is up to date with 'origin/master'.
+41 error
+41 error nothing to commit, working tree clean
+41 error     at makeError (/Users/guojianqiang/Documents/my-project/rainbow_deer/node_modules/execa/lib/error.js:60:11)
+41 error     at handlePromise (/Users/guojianqiang/Documents/my-project/rainbow_deer/node_modules/execa/index.js:118:26)
+41 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+41 error     at async Promise.all (index 0)

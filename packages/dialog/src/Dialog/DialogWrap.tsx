@@ -5,6 +5,7 @@ import ReactDom from 'react-dom'
 import Dialog from './Dialog'
 import DialogDrag from './DialogDrag'
 import DialogConfirm from './DialogConfirm'
+import { DialogHelper, getUUId } from './helper'
 
 export interface DialogWrapProps {
   /**
@@ -102,7 +103,7 @@ export interface DialogWrapProps {
   /**
    *  自定义dialog
    */
-  dialogRender?: (content: React.ReactElement) => React.ReactElement
+  dialogRender?: (content: React.ReactElement, closeDialog: () => void) => React.ReactElement
   /**
    * 是否开启动画
    */
@@ -132,14 +133,14 @@ export interface DialogWrapProps {
    */
   maskStyle?: React.CSSProperties
   children: React.ReactNode
+  /**
+   *  命令式调用
+   */
+  imperative?: boolean
 }
-
-// ===================== dialog 打开队列  ===================
-const dialogOpenQueue: number[] = []
 
 const DialogWrap: React.FC<DialogWrapProps> & {
   confirm: typeof DialogConfirm
-  dialogOpenQueue: typeof dialogOpenQueue
   DialogDrag: typeof DialogDrag
 } = (props) => {
   const {
@@ -151,6 +152,7 @@ const DialogWrap: React.FC<DialogWrapProps> & {
     children,
     onOk,
     destroyOnClose = false,
+    imperative = false,
     ...rest
   } = props
 
@@ -160,11 +162,18 @@ const DialogWrap: React.FC<DialogWrapProps> & {
 
   const [animatedVisible, setAnimatedVisible] = useState(visible)
 
+  const dialogId = useRef<number>(-1)
+
   useEffect(() => {
     if (visible) {
+      if (!imperative) {
+        dialogId.current = getUUId()
+        DialogHelper.afterOpen(dialogId.current)
+      }
       setVisited(true)
       setAnimatedVisible(true)
     }
+    return () => {}
   }, [visible])
 
   useEffect(() => {
@@ -179,7 +188,13 @@ const DialogWrap: React.FC<DialogWrapProps> & {
   }
 
   const onCloseDialog = () => {
-    typeof onClose === 'function' && onClose()
+    if (!imperative) {
+      DialogHelper.beforeClose(dialogId.current, () => {
+        typeof onClose === 'function' && onClose()
+      })
+    } else {
+      typeof onClose === 'function' && onClose()
+    }
   }
 
   const dialogProps = {
@@ -207,8 +222,6 @@ const DialogWrap: React.FC<DialogWrapProps> & {
 }
 
 DialogWrap.confirm = DialogConfirm
-
-DialogWrap.dialogOpenQueue = dialogOpenQueue
 
 DialogWrap.DialogDrag = DialogDrag
 

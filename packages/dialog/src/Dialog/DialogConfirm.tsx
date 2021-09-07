@@ -6,7 +6,7 @@ import cn from 'classnames'
 import DialogWrap, { DialogWrapProps } from './DialogWrap'
 import Button from '@rainbow_deer/button'
 import Icon from '@rainbow_deer/icon'
-import { getUUId } from './helper'
+import { DialogHelper, getUUId } from './helper'
 import { defaultAnimationName } from './Dialog'
 import DialogDrag from './DialogDrag'
 
@@ -78,6 +78,7 @@ const DialogConfirm: TDialogConfirm = (props) => {
     <DialogComp
       {...rest}
       visible
+      imperative
       onOk={handleClickOk}
       onClose={handleClickClose}
       getContainer={() => div}
@@ -103,21 +104,25 @@ const DialogConfirm: TDialogConfirm = (props) => {
       }
 
       document.body.appendChild(div)
+      DialogHelper.afterOpen(uuid)
     }
   )
 
   const destroy = () => {
-    const removeDiv = () => {
-      div?.parentNode?.removeChild(div)
-      confirmQueue.splice(indexRef.index, 1)
-    }
-    if (openAnimation) {
-      zDialog.style.animationName = animationName || defaultAnimationName + 'Out'
-      zDialogMask.style.animationName = maskAnimationName || defaultAnimationName + 'Out'
-      zDialog.addEventListener('animationend', removeDiv)
-    } else {
-      removeDiv()
-    }
+    DialogHelper.beforeClose(uuid, () => {
+      const removeDiv = () => {
+        ReactDom.unmountComponentAtNode(div)
+        div?.parentNode?.removeChild(div)
+        confirmQueue.splice(indexRef.index, 1)
+      }
+      if (openAnimation) {
+        zDialog.style.animationName = animationName || defaultAnimationName + 'Out'
+        zDialogMask.style.animationName = maskAnimationName || defaultAnimationName + 'Out'
+        zDialog.addEventListener('animationend', removeDiv)
+      } else {
+        removeDiv()
+      }
+    })
   }
 
   confirmQueue.push(destroy)
