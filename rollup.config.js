@@ -54,6 +54,7 @@ const getConfig = function (pkg) {
       output: {
         file: pkg.unpack,
         format: 'umd',
+        name: pkg.name,
         // sourcemap: true,
         globals
       },
