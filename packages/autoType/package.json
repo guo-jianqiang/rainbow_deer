@@ -22,7 +22,6 @@
     "build": "rollup -c && tsc"
   },
   "author": "guojianqiang",
-  "peerDependencies": {},
   "devDependencies": {
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9"
