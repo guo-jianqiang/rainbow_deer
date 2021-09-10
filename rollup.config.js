@@ -54,7 +54,6 @@ const getConfig = function (pkg) {
       output: {
         file: pkg.unpack,
         format: 'umd',
-        name: 'ReactHeroModal',
         // sourcemap: true,
         globals
       },
