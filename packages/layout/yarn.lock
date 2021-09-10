@@ -48,15 +48,6 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
-"@rainbow_deer/icon@^0.1.5":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@rainbow_deer/icon/-/icon-0.1.2.tgz#21ce9df42819014af9b4b0b032b3c2b6773ba389"
-  integrity sha512-1OXCxtBGVf+Bp4u+RfWqN2pLIWitA+w3QmcL542AjuluV4qOCYGrn56ANnjVr6Odz8h2UsFuUGlG1tHuKzP93w==
-  dependencies:
-    classnames "^2.3.1"
-    react "^17.0.2"
-    react-dom "^17.0.2"
-
 "@types/prop-types@*":
   version "15.7.4"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"

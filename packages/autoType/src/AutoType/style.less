@@ -1,0 +1,11 @@
+.z-autoType{
+  &:after{
+    content: '|';
+    animation: blink 1000ms infinite;
+  }
+}
+
+@keyframes blink {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

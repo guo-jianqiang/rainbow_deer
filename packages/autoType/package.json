@@ -1,0 +1,35 @@
+{
+  "name": "@rainbow_deer/autoType",
+  "version": "0.1.0",
+  "description": "React component.",
+  "keywords": [
+    "react",
+    "component",
+    "autoType"
+  ],
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "unpack": "lib/umd/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rollup -c && tsc"
+  },
+  "author": "guojianqiang",
+  "peerDependencies": {},
+  "devDependencies": {
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "gitHead": "ade6aa6bd88cfb1aa4bcdedf95e75da7db6fe6d7"
+}
