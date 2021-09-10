@@ -9,4 +9,4 @@ Currently supported components
 - [Icon](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/icon)
 - [Dialog](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/dialog)
 - [Layout](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/layout)
-- [autoType](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/auto-type)
+- [AutoType](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/auto-type)
