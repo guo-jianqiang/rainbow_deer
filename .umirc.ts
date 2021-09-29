@@ -7,8 +7,6 @@ export default defineConfig({
   outputPath: 'docs',
   mode: 'site',
   hash: true,
-  // Because of using GitHub Pages
-  // exportStatic: {},
   base: `/${repo}/`,
   publicPath: `/${repo}/`,
   resolve: {
@@ -30,5 +28,4 @@ export default defineConfig({
   extraBabelPlugins: [
     ["import", { "libraryName": "antd", "style": true }]
   ]
-  // more config: https://d.umijs.org/config
 })
