@@ -10,3 +10,4 @@ Currently supported components
 - [Dialog](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/dialog)
 - [Layout](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/layout)
 - [AutoType](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/auto-type)
+- [CloudBanner](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/cloud-banner)

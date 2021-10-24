@@ -15,7 +15,8 @@ export default defineConfig({
       'packages/button/src',
       'packages/icon/src',
       'packages/layout/src',
-      'packages/autoType/src'
+      'packages/cloudBanner/src',
+      'packages/autoType/src',
     ]
   },
   navs: [
