@@ -139,6 +139,25 @@ export default () => {
 }
 ```
 
+### group
+
+```tsx
+import React, { useState } from 'react'
+import Button from '@rainbow_deer/button'
+
+export default () => {
+  return (
+    <Button.Group activeKey='2'>
+      <Button key='1' type='primary'>
+        按钮1
+      </Button>
+      <Button key='2'>按钮2</Button>
+      <Button key='3'>按钮3</Button>
+    </Button.Group>
+  )
+}
+```
+
 ### props
 
 ```ts

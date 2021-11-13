@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import cn from 'classnames'
 import './style.less'
 import Loading from './Spin'
@@ -103,7 +103,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean = true) {
   return child
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> & { Group: typeof Group } = (props) => {
   const {
     type = '',
     size = 'normal',
@@ -171,5 +171,74 @@ const Button: React.FC<ButtonProps> = (props) => {
     </button>
   )
 }
+
+Button.displayName = 'Button'
+
+export interface GroupProps {
+  children: React.ReactNode
+  prefixCls?: string
+  activeKey: any
+}
+
+const Group = (props: GroupProps) => {
+  const { children, activeKey, prefixCls = 'z' } = props
+
+  const [selfActiveKey, setSelfActiveKey] = useState('')
+
+  useEffect(() => {
+    setSelfActiveKey(activeKey)
+  }, [activeKey])
+
+  const handleClick = (key: any) => () => {
+    setSelfActiveKey(key)
+  }
+
+  const {
+    left = 0,
+    width = 0,
+    height,
+  } = useMemo(() => {
+    let left = 2
+    const currentBtn = document.getElementById(`z-button-group-${selfActiveKey}`)
+    if (!currentBtn) return { left, width: 0, height: 0 }
+    const width = currentBtn.offsetWidth
+    const height = currentBtn.offsetHeight
+    const btns = document.getElementsByClassName(`${prefixCls}-button-group-item`)
+    const btnsArr = Array.prototype.slice.call(btns)
+    while (btnsArr.length) {
+      const btn = btnsArr.shift()
+      if (btn.id === `z-button-group-${selfActiveKey}`) break
+      left += btn.offsetWidth
+    }
+    return { left, width, height }
+  }, [selfActiveKey])
+
+  const activeSliderStyle: React.CSSProperties = {
+    left,
+    width,
+    height,
+  }
+
+  return (
+    <div className={`${prefixCls}-button-group`}>
+      <div style={activeSliderStyle} className={`${prefixCls}-button-group-active`} />
+      {React.Children.map(children as any, (thisChildren) => {
+        return (
+          <React.Fragment>
+            <div
+              onClick={handleClick(thisChildren?.key)}
+              id={`z-button-group-${thisChildren?.key}`}
+              className={`${prefixCls}-button-group-item`}
+            >
+              {thisChildren}
+            </div>
+          </React.Fragment>
+        )
+      })}
+    </div>
+  )
+}
+
+Button.Group = Group
 
 export default Button
