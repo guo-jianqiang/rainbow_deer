@@ -134,9 +134,10 @@ const DialogConfirm: TDialogConfirm = (props) => {
 
 const showConfirmType = (props: ConfirmProps) => {
   let destroy = () => {}
-  const { type, footer, ...rest } = props
+  const { type, footer, onAfterClose, ...rest } = props
   const handleClose = () => {
     destroy()
+    if (typeof onAfterClose === 'function') onAfterClose()
   }
   destroy = DialogConfirm({
     ...rest,
