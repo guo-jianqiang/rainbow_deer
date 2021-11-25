@@ -13,9 +13,9 @@ group:
 ## install
 
 ```shell script
-npm install @rainbow_deer/sliderSelect
+npm install @rainbow_deer/slider-select
 or
-yarn add @rainbow_deer/sliderSelect
+yarn add @rainbow_deer/slider-select
 ```
 
 ## usage
@@ -24,8 +24,7 @@ yarn add @rainbow_deer/sliderSelect
 
 ```tsx
 import React from 'react'
-import Layout from '@rainbow_deer/sliderSelect'
-import SliderSelect from './index'
+import SliderSelect from '@rainbow_deer/slider-select'
 
 export default () => {
   return <SliderSelect width={300} value={1} />
