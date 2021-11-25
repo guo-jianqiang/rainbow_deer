@@ -1,6 +1,6 @@
 {
   "name": "@rainbow_deer/sliderSelect",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "description": "React component.",
   "keywords": [
     "react",
@@ -23,8 +23,8 @@
   },
   "author": "guojianqiang",
   "peerDependencies": {
-    "react-dom": ">=16.8.0",
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.18",
