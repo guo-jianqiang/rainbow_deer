@@ -17,6 +17,7 @@ export default defineConfig({
       'packages/layout/src',
       'packages/cloudBanner/src',
       'packages/autoType/src',
+      'packages/sliderSelect/src'
     ]
   },
   navs: [

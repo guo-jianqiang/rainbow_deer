@@ -1,0 +1,39 @@
+{
+  "name": "@rainbow_deer/sliderSelect",
+  "version": "0.1.8",
+  "description": "React component.",
+  "keywords": [
+    "react",
+    "component",
+    "layout"
+  ],
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "unpack": "lib/umd/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rollup -c && tsc"
+  },
+  "author": "guojianqiang",
+  "peerDependencies": {
+    "react-dom": ">=16.8.0",
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "gitHead": "ec1389465e14c2505bab21f10963cb60bc039335"
+}
