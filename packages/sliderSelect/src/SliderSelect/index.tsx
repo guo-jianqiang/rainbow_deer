@@ -113,7 +113,9 @@ const SliderSelect: React.FC<SliderSelectProps> = props => {
       document.removeEventListener('mouseup', mouseUp)
     }
     const mouseDown = (e: MouseEvent) => {
+
       //https://github.com/ant-design/ant-design/issues/25010
+
       e.preventDefault()
       setIsMoving(true)
       startX = e.pageX
