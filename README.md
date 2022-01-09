@@ -12,3 +12,4 @@ Currently supported components
 - [AutoType](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/auto-type)
 - [CloudBanner](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/cloud-banner)
 - [sliderSelect](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/slider-select)
+- [context-menu](https://guo-jianqiang.github.io/rainbow_deer/Components/ReactComponent/context-menu)
