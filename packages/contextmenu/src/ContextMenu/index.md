@@ -66,7 +66,12 @@ const Index = () => {
   ]
   return (
     <div
-      style={{ height: 200, background: '#ccc' }}
+      style={{
+        height: 200,
+        background: '#ccc',
+        textAlign: 'center',
+        lineHeight: '200px',
+      }}
       onContextMenu={ContextMenu.onContextMenu(contextmenus)}
     >
       右键该区域

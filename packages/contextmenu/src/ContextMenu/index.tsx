@@ -73,8 +73,8 @@ ContextMenu.onContextMenu = (menus: ContextmenuItem[]) => (e: React.MouseEvent) 
   e.preventDefault()
   if (!menus) return
   const axis = {
-    x: e.pageX,
-    y: e.pageY,
+    x: e.clientX,
+    y: e.clientY,
   }
   const div = document.createElement('div')
   const onKeyDown = (e: KeyboardEvent) => {
