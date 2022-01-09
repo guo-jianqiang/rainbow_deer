@@ -1,0 +1,105 @@
+@menuWidth: 170px;
+@menuHeight: 30px;
+@subMenuWidth: 120px;
+@borderColor: #eee;
+@boxShadow: 3px 3px 3px rgba(#000, 0.15);
+.z-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9998;
+}
+
+.z-context-menu{
+  position: fixed;
+  z-index: 9999;
+  user-select: none;
+}
+
+.z-menu-content {
+  margin: 0;
+  width: @menuWidth;
+  padding: 5px 0;
+  background: #fff;
+  border: 1px solid @borderColor;
+  box-shadow: @boxShadow;
+  border-radius: 2px;
+  list-style: none;
+}
+.z-menu-item{
+  padding: 0 20px;
+  color: #555;
+  font-size: 12px;
+  transition: all .1s;
+  white-space: nowrap;
+  height: @menuHeight;
+  line-height: @menuHeight;
+  background-color: #fff;
+  cursor: pointer;
+  &:hover{
+    background: #e6f7ff;
+  }
+  &:not(.z-disable):hover > .z-menu-item-content > .z-sub-menu {
+    display: block;
+  }
+
+  &:not(.z-disable):hover > .z-has-children.z-has-handler::after {
+    transform: scale(1);
+  }
+  &.z-divider {
+    height: 1px;
+    overflow: hidden;
+    margin: 5px;
+    background-color: #e5e5e5;
+    line-height: 0;
+    padding: 0;
+  }
+  &.z-disabled {
+    color: #b1b1b1;
+    cursor: no-drop;
+  }
+}
+.z-menu-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  &.z-has-children::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #666 #666 transparent transparent;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  &.z-has-children.z-has-handler::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    background-color: #f1f1f1;
+    position: absolute;
+    right: 18px;
+    top: 3px;
+    transform: scale(0);
+    transition: transform 0.1s;
+  }
+  .z-sub-text {
+    opacity: 0.6;
+  }
+  .z-sub-menu {
+    width: calc(@menuWidth - 50px);
+    position: absolute;
+    display: none;
+    left: 112%;
+    top: -6px;
+  }
+}
