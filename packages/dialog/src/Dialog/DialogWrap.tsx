@@ -79,11 +79,11 @@ export interface DialogWrapProps {
   /**
    *  关闭
    */
-  onClose?: () => void
+  onClose?: (destroy?: Function) => void
   /**
    *  确认
    */
-  onOk?: () => void
+  onOk?: (destroy?: Function) => void
   /**
    * 确定按钮 loading
    */

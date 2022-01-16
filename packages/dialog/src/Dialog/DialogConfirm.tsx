@@ -49,7 +49,7 @@ const DialogConfirm: TDialogConfirm = (props) => {
 
   const handleClickOk = () => {
     if (typeof onOk === 'function') {
-      onOk()
+      onOk(destroy)
       return
     }
     destroy()
@@ -57,7 +57,7 @@ const DialogConfirm: TDialogConfirm = (props) => {
 
   const handleClickClose = () => {
     if (typeof onClose === 'function') {
-      onClose()
+      onClose(destroy)
       return
     }
     destroy()
@@ -98,7 +98,7 @@ const DialogConfirm: TDialogConfirm = (props) => {
     () => {
       zDialog = div.getElementsByClassName('z-dialog')[0] as HTMLElement
       zDialogMask = div.getElementsByClassName('z-dialog-mask')[0] as HTMLElement
-      if (!openAnimation) {
+      if (!openAnimation && zDialog?.style) {
         zDialog.style.animationName = ''
         zDialogMask.style.animationName = ''
       }

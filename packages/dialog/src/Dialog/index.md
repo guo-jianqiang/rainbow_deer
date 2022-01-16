@@ -32,7 +32,13 @@ export default () => {
   return (
     <>
       <Button onClick={handleClick}>打开</Button>
-      <Dialog destroyOnClose onClose={() => setVisible(false)} visible={visible} title='标题'>
+      <Dialog
+        destroyOnClose
+        openAnimation={false}
+        onClose={() => setVisible(false)}
+        visible={visible}
+        title='标题'
+      >
         body
       </Dialog>
     </>
@@ -55,7 +61,12 @@ export default () => {
   return (
     <>
       <Button onClick={handleClick}>打开</Button>
-      <Dialog.DialogDrag onClose={() => setVisible(false)} visible={visible} title='标题'>
+      <Dialog.DialogDrag
+        openAnimation={false}
+        onClose={() => setVisible(false)}
+        visible={visible}
+        title='标题'
+      >
         body
       </Dialog.DialogDrag>
     </>
@@ -134,14 +145,16 @@ import Dialog from '@rainbow_deer/dialog'
 import Button from '@rainbow_deer/button'
 export default () => {
   const handleClick = () => {
-    const destroy = Dialog.confirm({
+    Dialog.confirm({
       title: '标题',
-      onOk: () => {
+      content: '内容',
+      onOk: (destroy) => {
         destroy()
       },
-      onClose: () => {
+      onClose: (destroy) => {
         destroy()
       },
+      openAnimation: false,
     })
   }
   return <Button onClick={handleClick}>打开</Button>
