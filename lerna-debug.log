@@ -1,8 +1,0 @@
-57 warn complete Waiting for 2 child processes to exit. CTRL-C to exit immediately.
-58 error Error: Command failed with exit code 128: git tag @rainbow_deer/autoType@0.1.0 -m @rainbow_deer/autoType@0.1.0
-58 error fatal: tag '@rainbow_deer/autoType@0.1.0' already exists
-58 error     at makeError (/Users/guojianqiang/Documents/my-project/rainbow_deer/node_modules/execa/lib/error.js:60:11)
-58 error     at handlePromise (/Users/guojianqiang/Documents/my-project/rainbow_deer/node_modules/execa/index.js:118:26)
-58 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
-58 error     at async Promise.all (index 0)
-58 error     at async Promise.all (index 0)
