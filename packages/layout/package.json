@@ -1,6 +1,6 @@
 {
   "name": "@rainbow_deer/layout",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "React component.",
   "keywords": [
     "react",
@@ -31,7 +31,7 @@
     "@types/react-dom": "^17.0.9"
   },
   "dependencies": {
-    "@rainbow_deer/icon": "^0.1.6",
+    "@rainbow_deer/icon": "^0.1.7",
     "antd": "^4.16.13",
     "classnames": "^2.3.1",
     "react": "^17.0.2",

@@ -1,6 +1,6 @@
 {
   "name": "@rainbow_deer/tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component.",
   "keywords": [
     "react",
@@ -38,7 +38,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@rainbow_deer/icon": "^0.1.6"
+    "@rainbow_deer/icon": "^0.1.7"
   },
   "gitHead": "0a6d1184066f2d43c565035ccadb6cc83189d27b"
 }

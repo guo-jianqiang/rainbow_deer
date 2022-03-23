@@ -1,6 +1,6 @@
 {
   "name": "@rainbow_deer/dialog",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "React component.",
   "keywords": [
     "react",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@rainbow_deer/button": "^0.1.8",
-    "@rainbow_deer/icon": "^0.1.6",
+    "@rainbow_deer/icon": "^0.1.7",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
