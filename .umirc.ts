@@ -19,6 +19,8 @@ export default defineConfig({
       'packages/autoType/src',
       'packages/sliderSelect/src',
       'packages/contextmenu/src',
+      'packages/tree/src',
+      'packages/keywordHighLighting/src'
     ]
   },
   navs: [

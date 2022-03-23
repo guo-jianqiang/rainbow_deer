@@ -1,0 +1,52 @@
+.z-tree{
+  overflow: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .z-treeNode{
+    .z-treeNodeTitle{
+      display: flex;
+      padding-left: 4px;
+      font-size: 12px;
+      line-height: 26px;
+      height: 26px;
+      color: #161923;
+      cursor: pointer;
+      user-select: none;
+      overflow: hidden;
+      .z-treeNodeText{
+        flex: 1;
+        overflow: hidden;
+        display: inline-block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &.disabled{
+          cursor: not-allowed;
+          //pointer-events: none;
+        }
+      }
+      &:hover {
+        background-color: #F1F4F7;
+      }
+      &.selected{
+        background: #F1F4F7;
+        border-radius: 2px;
+      }
+      .z-treeNodeExpandIcon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 2px;
+      }
+    }
+    .z-innerTreeNode{
+      transition: max-height 100ms linear;
+      overflow: hidden;
+    }
+  }
+}

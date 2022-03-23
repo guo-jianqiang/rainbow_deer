@@ -85,6 +85,23 @@ export const Home = (props: IconProps) => (
   </svg>
 )
 
+export const TriangleRight = (props: IconProps) => (
+  <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="20708" {...props}>
+    <path
+      d="M817.088 484.96l-512-323.744C295.232 154.976 282.752 154.592 272.576 160.224 262.336 165.856 256 176.608 256 188.256l0 647.328c0 11.648 6.336 22.4 16.576 28.032 4.8 2.656 10.112 3.968 15.424 3.968 5.952 0 11.904-1.664 17.088-4.928l512-323.616C826.368 533.184 832 522.976 832 512 832 501.024 826.368 490.816 817.088 484.96z"
+      p-id="20709"></path>
+  </svg>
+)
+
+export const TriangleBottom = (props: IconProps) => (
+  <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="20847" {...props}>
+    <path
+      d="M523.955 832.173l323.744-512c6.24-9.856 6.624-22.336 0.992-32.512-5.632-10.24-16.384-16.576-28.033-16.576h-647.328c-11.647 0-22.4 6.336-28.033 16.576-2.656 4.8-3.968 10.112-3.968 15.424 0 5.952 1.664 11.904 4.929 17.088l323.616 512c5.856 9.28 16.064 14.911 27.040 14.912s21.184-5.632 27.040-14.912z"
+      p-id="20848"></path>
+  </svg>
+)
+
+
 const iconMap: {
   [key: string]: any
 } = {
@@ -94,6 +111,8 @@ const iconMap: {
   warning: Warning,
   info: Warning,
   home: Home,
+  TriangleRight,
+  TriangleBottom,
 }
 
 export default iconMap

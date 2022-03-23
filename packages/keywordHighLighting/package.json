@@ -1,11 +1,11 @@
 {
-  "name": "@rainbow_deer/slider-select",
-  "version": "1.0.1",
+  "name": "@rainbow_deer/keywordHighLighting",
+  "version": "1.0.0",
   "description": "React component.",
   "keywords": [
     "react",
     "component",
-    "slider"
+    "keywordHigLighting"
   ],
   "license": "MIT",
   "main": "lib/cjs/index.js",
@@ -23,17 +23,20 @@
   },
   "author": "guojianqiang",
   "peerDependencies": {
+    "classnames": ">=2.3.0",
+    "lodash": ">=4.17.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.18",
-    "@types/react-dom": "^17.0.9"
-  },
-  "dependencies": {
+    "@types/react-dom": "^17.0.9",
+    "@types/lodash": "^4.14.180",
     "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
+  "dependencies": {},
   "gitHead": "0a6d1184066f2d43c565035ccadb6cc83189d27b"
 }
